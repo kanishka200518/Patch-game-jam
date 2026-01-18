@@ -1,2 +1,8 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Enforce Unix-style line endings for most files
+* text=auto eol=lf
+
+# Keep specific binary files as binary (optional but good for Godot)
+*.png binary
+*.jpg binary
+*.ogg binary
+*.import binary
