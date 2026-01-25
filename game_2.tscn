@@ -1,13 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://oiw3wjv5uubt"]
+[gd_scene load_steps=7 format=3 uid="uid://oiw3wjv5uubt"]
 
 [ext_resource type="PackedScene" uid="uid://3em15dvwyfw4" path="res://Player2.tscn" id="1_me4bl"]
-[ext_resource type="Script" uid="uid://dad6h76752dvs" path="res://player_2.gd" id="2_31blf"]
 [ext_resource type="Texture2D" uid="uid://c7i7ecskqc41n" path="res://sprites/world_tileset.png" id="3_31blf"]
-[ext_resource type="PackedScene" uid="uid://du8ej30brlndr" path="res://killzone.tscn" id="4_pylxb"]
-[ext_resource type="Script" uid="uid://bcb7o1f0qt6qf" path="res://killzone.gd" id="5_3hbg1"]
+[ext_resource type="PackedScene" uid="uid://cguud4u7hdl5f" path="res://killzone_2.tscn" id="3_h2xay"]
 [ext_resource type="PackedScene" uid="uid://bprjx8byqv3w8" path="res://Enemy.tscn" id="6_3hbg1"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2xay"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_me4bl"]
 texture = ExtResource("3_31blf")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -138,36 +136,30 @@ texture = ExtResource("3_31blf")
 2:15/0 = 0
 3:15/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_pylxb"]
-physics_layer_0/collision_layer = 1
+[sub_resource type="TileSet" id="TileSet_31blf"]
+physics_layer_0/collision_layer = 5
 physics_layer_0/collision_mask = 5
-sources/0 = SubResource("TileSetAtlasSource_h2xay")
+sources/0 = SubResource("TileSetAtlasSource_me4bl")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3hbg1"]
-distance = -4.0
-
-[node name="game2" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_me4bl")]
-position = Vector2(-3, 5)
-script = ExtResource("2_31blf")
+position = Vector2(-5, 4)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(11, 5)
 zoom = Vector2(4, 4)
-limit_bottom = 50
+limit_left = -9999972
+limit_top = -9999985
+limit_right = 10000028
+limit_bottom = 75
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_pylxb")
+tile_set = SubResource("TileSet_31blf")
 format = 2
-layer_0/tile_data = PackedInt32Array(131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 5, 0, 0, 6, 0, 0, -65529, 0, 0, 8, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65550, 0, 0, 65549, 0, 0, 65551, 0, 0)
+layer_0/tile_data = PackedInt32Array(131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 2, 0, 0, 3, 0, 0, -65533, 0, 0, -65532, 0, 0, 5, 0, 0, -65531, 0, 0, 6, 0, 0, 7, 0, 0, -65528, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -65525, 0, 0, 11, 0, 0, 13, 0, 0, 12, 0, 0, 65550, 0, 0, 131087, 0, 0, 196625, 0, 0, 196624, 0, 0, 262162, 0, 0, 196627, 0, 0, 131092, 0, 0, 65557, 0, 0, 22, 0, 0, -65513, 0, 0, -131048, 0, 0, -196583, 0, 0, 196606, 0, 0)
 
-[node name="Killzone" parent="." instance=ExtResource("4_pylxb")]
-script = ExtResource("5_3hbg1")
+[node name="killzone2" parent="." instance=ExtResource("3_h2xay")]
+position = Vector2(0, 50)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(42, 39)
-shape = SubResource("WorldBoundaryShape2D_3hbg1")
-
-[node name="CharacterBody2D2" parent="." instance=ExtResource("6_3hbg1")]
-position = Vector2(24, 5)
+[node name="Enemy" parent="." instance=ExtResource("6_3hbg1")]
+position = Vector2(62, -20)
