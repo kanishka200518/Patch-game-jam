@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://oiw3wjv5uubt"]
+[gd_scene load_steps=8 format=3 uid="uid://oiw3wjv5uubt"]
 
 [ext_resource type="PackedScene" uid="uid://3em15dvwyfw4" path="res://Player2.tscn" id="1_me4bl"]
 [ext_resource type="Texture2D" uid="uid://c7i7ecskqc41n" path="res://sprites/world_tileset.png" id="3_31blf"]
 [ext_resource type="PackedScene" uid="uid://cguud4u7hdl5f" path="res://killzone_2.tscn" id="3_h2xay"]
+[ext_resource type="PackedScene" uid="uid://dtbe1pfdkth5l" path="res://bullet.tscn" id="5_pylxb"]
 [ext_resource type="PackedScene" uid="uid://bprjx8byqv3w8" path="res://Enemy.tscn" id="6_3hbg1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_me4bl"]
@@ -159,7 +160,11 @@ format = 2
 layer_0/tile_data = PackedInt32Array(131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 2, 0, 0, 3, 0, 0, -65533, 0, 0, -65532, 0, 0, 5, 0, 0, -65531, 0, 0, 6, 0, 0, 7, 0, 0, -65528, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -65525, 0, 0, 11, 0, 0, 13, 0, 0, 12, 0, 0, 65550, 0, 0, 131087, 0, 0, 196625, 0, 0, 196624, 0, 0, 262162, 0, 0, 196627, 0, 0, 131092, 0, 0, 65557, 0, 0, 22, 0, 0, -65513, 0, 0, -131048, 0, 0, -196583, 0, 0, 196606, 0, 0)
 
 [node name="killzone2" parent="." instance=ExtResource("3_h2xay")]
-position = Vector2(0, 50)
+position = Vector2(41, 74)
 
 [node name="Enemy" parent="." instance=ExtResource("6_3hbg1")]
-position = Vector2(62, -20)
+position = Vector2(71, -16)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("5_pylxb")]
+position = Vector2(20, -59)
+rotation = -3.1447392
