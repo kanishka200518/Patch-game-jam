@@ -143,11 +143,13 @@ physics_layer_0/collision_mask = 5
 sources/0 = SubResource("TileSetAtlasSource_me4bl")
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(0, 1)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_me4bl")]
 position = Vector2(-5, 4)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(1, 0)
 zoom = Vector2(4, 4)
 limit_left = -9999972
 limit_top = -9999985

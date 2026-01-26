@@ -1,47 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://bprjx8byqv3w8"]
+[gd_scene load_steps=8 format=3 uid="uid://bprjx8byqv3w8"]
 
 [ext_resource type="Script" uid="uid://8krlv3dhtqui" path="res://Scripts/enemy.gd" id="1_s7bn3"]
-[ext_resource type="Texture2D" uid="uid://c5ulwfrh0luh1" path="res://sprites/slime_green.png" id="1_tt7e2"]
+[ext_resource type="Texture2D" uid="uid://uj0bqnq2s8k3" path="res://Assets/AlienShooterGB_1.0/AlienShooterGB_1.0/Seperated_Assets/Sprites/Aliens/Alien_Air1.png" id="2_2hac7"]
 [ext_resource type="PackedScene" uid="uid://dn247c70me55w" path="res://Scenes/healthbar.tscn" id="3_2hac7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s7bn3"]
-atlas = ExtResource("1_tt7e2")
-region = Rect2(0, 24, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2hac7"]
-atlas = ExtResource("1_tt7e2")
-region = Rect2(24, 24, 24, 24)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_e6d4v"]
-atlas = ExtResource("1_tt7e2")
-region = Rect2(48, 24, 24, 24)
+atlas = ExtResource("2_2hac7")
+region = Rect2(0, 0, 26, 17)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qp131"]
-atlas = ExtResource("1_tt7e2")
-region = Rect2(72, 24, 24, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6do27"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qp131"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s7bn3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2hac7")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_e6d4v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qp131")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7bn3"]
-size = Vector2(18, 14)
+size = Vector2(22, 15.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hac7"]
 size = Vector2(8, 7)
@@ -53,15 +32,13 @@ script = ExtResource("1_s7bn3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -12)
-sprite_frames = SubResource("SpriteFrames_6do27")
-frame = 3
-frame_progress = 0.68029803
+sprite_frames = SubResource("SpriteFrames_qp131")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 light_mask = 5
-position = Vector2(1, -7)
+position = Vector2(1, -12)
 shape = SubResource("RectangleShape2D_s7bn3")
 
 [node name="Timer" type="Timer" parent="."]
@@ -74,9 +51,8 @@ shape = SubResource("RectangleShape2D_2hac7")
 
 [node name="healthbar" parent="." instance=ExtResource("3_2hac7")]
 offset_left = -16.0
-offset_top = 3.000001
 offset_right = 54.307785
-offset_bottom = 26.0
+offset_bottom = 23.0
 scale = Vector2(0.5120343, 0.34281945)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

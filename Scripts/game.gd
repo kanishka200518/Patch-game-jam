@@ -2,7 +2,7 @@ extends Node2D
 @onready var timer = $Timer
 @onready var time_label = $CanvasLayer/TimeLabel
 
-var time_left := 100
+var time_left := 10 
 
 func _ready():
 	timer.timeout.connect(_on_timer_timeout)
@@ -16,6 +16,7 @@ func _on_timer_timeout():
 	if time_left <= 0:
 		timer.stop()
 		level_failed()
+
 
 func update_label():
 	time_label.text = "Time_left: %d" % time_left
