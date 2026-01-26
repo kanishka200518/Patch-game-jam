@@ -7,6 +7,8 @@ var health=100
 var health_max=100
 var health_min=0
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 func take_damage(damage:int):
 	health-=damage
 	if health<=0:
@@ -32,5 +34,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if direction < 0:
+		animated_sprite_2d.flip_h = true   # face left
+	elif direction > 0:
+		animated_sprite_2d.flip_h = false  # face right
+		
+	if velocity.x != 0:
+		animated_sprite_2d.play("run")
+	else:
+		animated_sprite_2d.play("idle")
+
 
 	move_and_slide()
