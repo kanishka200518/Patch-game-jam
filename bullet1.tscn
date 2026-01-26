@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://drkvuxbqx6c07"]
+
+[ext_resource type="Texture2D" uid="uid://df8mmwdku8wav" path="res://Assets/AlienShooterGB_1.0/AlienShooterGB_1.0/Seperated_Assets/Sprites/Player/Ship_Mid.png" id="1_7f4k7"]
+[ext_resource type="Script" uid="uid://c0gr3ybuol4h6" path="res://bullet.gd" id="2_f7cwy"]
+
+[node name="bullet" type="Area2D"]
+script = ExtResource("2_f7cwy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.9999998, 1)
+scale = Vector2(0.88461536, 0.7692308)
+texture = ExtResource("1_7f4k7")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 3
