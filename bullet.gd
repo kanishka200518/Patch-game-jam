@@ -40,3 +40,9 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	# Only delete if we are NOT rewinding
 	if not is_rewinding:
 		queue_free()
+
+
+func _on_body_entered(_body: Node2D) -> void:
+	if _body.has_method("take_damage"):
+
+		_body.take_damage(30)
