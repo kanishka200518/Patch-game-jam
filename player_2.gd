@@ -7,6 +7,15 @@ var health=100
 var health_max=100
 var health_min=0
 
+func take_damage(damage:int):
+	health-=damage
+	if health<=0:
+		die()
+
+func die():
+	get_tree().reload_current_scene()
+	print("dead")
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
