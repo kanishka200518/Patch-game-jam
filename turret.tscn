@@ -12,13 +12,6 @@ ammo = ExtResource("2_2kw7u")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_coqkk")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -22.0
-offset_top = -33.0
-offset_right = 27.0
-offset_bottom = -10.0
-text = "Turret"
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 7
 
